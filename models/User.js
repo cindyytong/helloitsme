@@ -7,6 +7,7 @@ const UserSchema = new Schema({
   handle: {
     type: String,
     required: true,
+    maxlength: 30,
     index: { unique: true }
   },
   email: {
@@ -16,7 +17,8 @@ const UserSchema = new Schema({
   },
   password: {
     type: String,
-    required: true
+    required: true,
+    minlength: 6
   },
   firstName: {
     type: String

@@ -7,7 +7,7 @@ const db = require('./config/keys').mongoURI;
 // import routes 
 const users = require("./routes/api/users");
 const stories = require("./routes/api/stories");
-const paragraphs = require("./routes/api/paragraphs");
+const sections = require("./routes/api/sections");
 
 // parse JSON on frontend 
 const bodyParser = require('body-parser')
@@ -25,7 +25,7 @@ app.use(bodyParser.json());
 app.get("/", (req, res) => res.send("Yes World"))
 app.use("/api/users", users);
 app.use("/api/stories", stories);
-app.use("/api/paragraphs", paragraphs); 
+app.use("/api/sections", sections); 
 
 
 // pick port to run server on 
