@@ -4,6 +4,8 @@ const app = express();
 // connect to the MongoDB database 
 const mongoose = require('mongoose');
 const db = require('./config/keys').mongoURI;
+const passport = require('passport');
+
 // import routes 
 const users = require("./routes/api/users");
 const stories = require("./routes/api/stories");
@@ -20,6 +22,8 @@ mongoose
 // set up middleware for bodyparser 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(passport.initialize());
+require('./config/passport')(passport);
 
 // routes 
 app.get("/", (req, res) => res.send("Yes World"))
