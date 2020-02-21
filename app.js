@@ -26,7 +26,9 @@ app.use(passport.initialize());
 require('./config/passport')(passport);
 
 // routes 
-app.get("/", (req, res) => res.send("Yes World"))
+app.get("/", (req, res) => {
+  return res.send("Yes World")}
+  )
 app.use("/api/users", users);
 app.use("/api/stories", stories);
 app.use("/api/sections", sections); 
