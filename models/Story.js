@@ -18,4 +18,6 @@ const StorySchema = new Schema({
     }
 });
 
-module.exports = Story = mongoose.model('Story', StorySchema);
+const Story = mongoose.model('story', StorySchema);
+
+module.exports = Story;

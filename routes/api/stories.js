@@ -5,30 +5,55 @@ const passport = require("passport");
 const Story = require('../../models/Story');
 const validateStoryInput = require('../../validation/stories');
 
-// test will be nested under users i.e. /api/users/test
+// test will be nested under users i.e. /api/stories
 router.get("/test", (req, res) => res.json({ msg: "This is the stories route" }));
 
-router.post("/", 
-    // use passport as middleware to check there is user, adds the bearer to the req 
-    passport.authenticate("jwt", { session: false }),
-    // validate story 
-    (req, res) => {
-        const { isValid, errors } = validateStoryInput(req.body);
 
-        if(!isValid) {
-            return res.status(400).json(errors);
-        }
+// all stories 
+router.get("/", (req, res) => {
+  Story.find()
+    .sort({ date: -1 })
+    .then(stories => res.json(stories))
+    .catch(err => res.status(404).json({ nostoriesfound: "No stories found" }));
+});
 
-        // make the new story 
-        const newStory = new Story({
-            creator: req.creator.id,
-            title: req.title
-        });
+// stories for a specific ueser 
 
-        // save story and send back response 
-        newStory
-            .save()
-            .then(tweet => res.json(tweet));
+router.get("/user/:user_id", (req, res) => {
+  Story.find({ user: req.params.user_id })
+    .then(stories => res.json(stories))
+    .catch(err =>
+      res.status(404).json({ nostoriesfound: "No stories found from that user" })
+    );
+});
 
-})
+// story by story id 
+router.get("/:id", (req, res) => {
+  Story.findById(req.params.id)
+    .then(story => res.json(story))
+    .catch(err =>
+      res.status(404).json({ nostoryfound: "No story found with that ID" })
+    );
+});
+
+// make a story (protected)
+router.post(
+  "/",
+  passport.authenticate("jwt", { session: false }), // middleware which checks there is a current user 
+  (req, res) => {
+    const { errors, isValid } = validateStoryInput(req.body); // validate inpute
+ 
+    if (!isValid) {
+      return res.status(400).json(errors);
+    }
+
+    const newStory = new Story({
+      title: req.body.title,
+      creator: req.user.id
+    });
+ 
+    return newStory.save().then(story => res.json(story));
+  }
+);
+
 module.exports = router;

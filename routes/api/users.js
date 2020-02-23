@@ -89,8 +89,9 @@ router.post("/login", (req, res) => {
 });
 
 // get current user 
-router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {
-  return res.json({ // we need to return the user in the response
+router.get('/current', passport.authenticate('jwt', { session: false }), 
+(req, res) => {
+  res.json({ 
     id: req.user.id,
     handle: req.user.handle,
     email: req.user.email

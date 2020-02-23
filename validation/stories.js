@@ -1,9 +1,11 @@
 const Validator = require('validator');
 const validText = require('./valid-text');
 
+// model level validations 
+
 module.exports = function validateStoryInput(data) {
     let errors = {};
-
+    // check the input values for the model and add errors to the errors object
     data.title = validText(data.title) ? data.title : '';
 
     if (!Validator.isLength(data.title, { min: 1, max: 150})) {
