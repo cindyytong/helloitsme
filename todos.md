@@ -3,3 +3,6 @@
 
 # Story 
 * add image_url 
+
+# Stories
+* routing add delete and edit 

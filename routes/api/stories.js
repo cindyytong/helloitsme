@@ -36,6 +36,18 @@ router.get("/:id", (req, res) => {
     );
 });
 
+// edit a story you are the creator for 
+// router.put("/:id", (req, res) => {
+//   console.log(req)
+//   Story.findById(req.params.id)
+//     .then(
+//       story => {
+//         res.json(story);})
+//     .catch(err =>
+//       res.status(404).json({ nostoryfound: "No story found with that ID" })
+//     );
+// })
+
 // make a story (protected)
 router.post(
   "/",
@@ -55,5 +67,9 @@ router.post(
     return newStory.save().then(story => res.json(story));
   }
 );
+
+
+
+
 
 module.exports = router;
