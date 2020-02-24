@@ -19,11 +19,11 @@ router.get("/", (req, res) => {
 
 // stories for a specific ueser 
 
-router.get("/user/:user_id", (req, res) => {
-  Story.find({ user: req.params.user_id })
+router.get("/creator/:creator_id", (req, res) => {
+  Story.find({ creator: req.params.creator_id })
     .then(stories => res.json(stories))
     .catch(err =>
-      res.status(404).json({ nostoriesfound: "No stories found from that user" })
+      res.status(404).json({ nostoriesfound: "No stories found from that creator" })
     );
 });
 

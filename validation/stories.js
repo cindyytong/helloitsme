@@ -9,10 +9,10 @@ module.exports = function validateStoryInput(data) {
     data.title = validText(data.title) ? data.title : '';
 
     if (!Validator.isLength(data.title, { min: 1, max: 150})) {
-        errors.text = "Title must be between 1 and 155 characters"
+        errors.title = "Title must be between 1 and 155 characters";
     }
 
-    if (!Validator.isEmpty(data.title)) {
+    if (Validator.isEmpty(data.title)) {
         errors.title = 'Title field is required'
     }
 
