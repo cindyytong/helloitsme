@@ -17,13 +17,22 @@ class LoginForm extends React.Component {
 
     // Once the user has been authenticated, redirect to the Tweets page
     componentWillReceiveProps(nextProps) {
+        debugger
         if (nextProps.currentUser === true) {
-            this.props.history.push('/tweets');
+            this.props.history.push('/stories');
         }
 
         // Set or clear errors
         this.setState({ errors: nextProps.errors })
     }
+
+    // componentDidUpdate(prevProps, prevState) {
+    //     debugger
+    //     if (this.props.currentUser === true) {
+    //         this.props.history.push('/stories');
+    //     }
+    //     // this.setState({ errors: nextProps.errors })
+    // }
 
     // Handle field updates (called in the render method)
     update(field) {
@@ -40,7 +49,7 @@ class LoginForm extends React.Component {
             email: this.state.email,
             password: this.state.password
         };
-
+        debugger
         this.props.login(user);
     }
 
