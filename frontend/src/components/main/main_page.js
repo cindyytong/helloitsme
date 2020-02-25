@@ -5,11 +5,11 @@ class MainPage extends React.Component {
     render() {
         return (
             <div>
-                <h1>Hello It's Me</h1>
-                <p>Collective storytelling</p>
+                <p>MainPage: Collective storytelling</p>
                 <footer>
                     Made in NYC 2020
-        </footer>
+                    Cindy Tong
+                </footer>
             </div>
         );
     }
