@@ -14,7 +14,7 @@ export const receiveUserStories = stories => ({
     stories
 });
 
-export const receiveNewStory = Story => ({
+export const receiveNewStory = story => ({
     type: RECEIVE_NEW_STORY,
     story
 })
@@ -33,6 +33,6 @@ export const fetchUserStories = id => dispatch => (
 
 export const composeStory = data => dispatch => (
     writeStory(data)
-        .then(story => dispatch(receiveNewStory(Story)))
+        .then(story => dispatch(receiveNewStory(story)))
         .catch(err => console.log(err))
 );

@@ -14,6 +14,8 @@
 # Questions
 * why do we save localstorage and axios header for jwt token?
 * in Navbar container why don't we have to mdp for logout? 
+* how do i seed the database? 
+* Do we still normalize state even using nonrelational db? 
 
 # Resources:
 * [Design] (https://cargo.site/Templates#pierre76)

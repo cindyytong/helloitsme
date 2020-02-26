@@ -17,7 +17,6 @@ class LoginForm extends React.Component {
 
     // Once the user has been authenticated, redirect to the Stories page
     componentWillReceiveProps(nextProps) {
-        debugger
         if (nextProps.currentUser === true) {
             this.props.history.push('/stories');
         }
@@ -49,7 +48,6 @@ class LoginForm extends React.Component {
             email: this.state.email,
             password: this.state.password
         };
-        debugger
         this.props.login(user);
     }
 

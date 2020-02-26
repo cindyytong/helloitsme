@@ -8,7 +8,7 @@ export const RECEIVE_USER_SIGN_IN = "RECEIVE_USER_SIGN_IN";
 
 // We'll dispatch this when our user signs in
 export const receiveCurrentUser = currentUser => {
-  debugger
+  
   return {
     type: RECEIVE_CURRENT_USER,
     currentUser
@@ -17,7 +17,7 @@ export const receiveCurrentUser = currentUser => {
 
 // This will be used to redirect the user to the login page upon signup
 export const receiveUserSignIn = () => {
-  debugger
+  
   return {
   type: RECEIVE_USER_SIGN_IN
   }
@@ -37,11 +37,16 @@ export const logoutUser = () => ({
 // Upon signup, dispatch the approporiate action depending on which type of response we receieve from the backend
 export const signup = user => dispatch =>
   APIUtil.signup(user).then( res => {
-    debugger
-    return dispatch(receiveUserSignIn());
+    
+    // return dispatch(receiveUserSignIn());
+      const { token } = res.data;
+      localStorage.setItem("jwtToken", token);
+      APIUtil.setAuthToken(token);
+      const decoded = jwt_decode(token);
+      dispatch(receiveCurrentUser(decoded));
     })
     .catch( err => {
-      debugger
+      
       return dispatch(receiveErrors(err.response.data));
   });
 
@@ -49,7 +54,6 @@ export const signup = user => dispatch =>
 export const login = user => dispatch =>
   APIUtil.login(user)
     .then(res => {
-      debugger
       const { token } = res.data;
       localStorage.setItem("jwtToken", token);
       APIUtil.setAuthToken(token);

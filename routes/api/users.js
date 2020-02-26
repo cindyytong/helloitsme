@@ -55,7 +55,7 @@ router.post("/register", (req, res) => {
 });
 
 router.post("/login", (req, res) => {
-  debugger
+  
   const { errors, isValid } = validateLoginInput(req.body);
 
   if (!isValid) {
@@ -67,7 +67,7 @@ router.post("/login", (req, res) => {
 
   User.findOne({ email }).then(user => {
     if (!user) {
-      debugger
+      
       errors.email = "This user does not exist";
       return res.status(400).json(errors);
     }
