@@ -14,3 +14,6 @@
 # Questions
 * why do we save localstorage and axios header for jwt token?
 * in Navbar container why don't we have to mdp for logout? 
+
+# Resources:
+* [Design] (https://cargo.site/Templates#pierre76)
