@@ -12,6 +12,7 @@ router.get("/test", (req, res) => res.json({ msg: "This is the stories route" })
 // all stories 
 router.get("/", (req, res) => {
   Story.find()
+    .populate("creator", "handle")
     .sort({ date: -1 })
     .then(stories => res.json(stories))
     .catch(err => res.status(404).json({ nostoriesfound: "No stories found" }));

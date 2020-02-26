@@ -27,7 +27,7 @@ const App = () => (
         component={StoryComposeContainer} */}
       />
   // logged in and out 
-      {/* <Route exact path="/stories" component={StoryIndexContainer} /> */}
+      <Route exact path="/stories" component={StoryIndexContainer} />
     </Switch>
   </>
 );

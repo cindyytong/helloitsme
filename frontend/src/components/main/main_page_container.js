@@ -5,7 +5,7 @@ import MainPage from "./main_page";
 
 const mapStateToProps = state => {
   return {
-    stories: Object.values(state.entities.stories.all) || []
+    stories: Object.values(state.entities.stories.all).slice(1,11) || []
   };
 };
 

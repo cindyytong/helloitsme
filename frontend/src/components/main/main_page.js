@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 
 class MainPage extends React.Component {
     componentDidMount(){
@@ -11,6 +11,8 @@ class MainPage extends React.Component {
     let titles = (this.props.stories.length === 0) ? (<div>There are no stories</div>) : (this.props.stories.map(story => {
       return <li>{story.title}</li>;
     }))
+
+    let more = (this.props.stories.length >= 10) ? (<Link to={"/stories"}>See All Stories</Link>) : null;
 
     return (
       <>
@@ -24,6 +26,7 @@ class MainPage extends React.Component {
         <div>
           <h3>Table of Contents</h3>
           <ul>{titles}</ul>
+          {more}
         </div>
       </>
     );
