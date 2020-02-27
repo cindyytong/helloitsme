@@ -1,8 +1,8 @@
-import { getStories, getUserStories, writeStory } from '../util/story_util';
+import { getStories, getUserStories, writeStory, getStory } from '../util/story_util';
 
 export const RECEIVE_STORIES = "RECEIVE_STORIES";
 export const RECEIVE_USER_STORIES = "RECEIVE_USER_STORIES";
-export const RECEIVE_NEW_STORY = "RECEIVE_NEW_STORY";
+export const RECEIVE_STORY = "RECEIVE_STORY";
 
 export const receiveStories = stories => ({
     type: RECEIVE_STORIES,
@@ -14,8 +14,8 @@ export const receiveUserStories = stories => ({
     stories
 });
 
-export const receiveNewStory = story => ({
-    type: RECEIVE_NEW_STORY,
+export const receiveStory = story => ({
+    type: RECEIVE_STORY,
     story
 })
 
@@ -25,6 +25,16 @@ export const fetchStories = () => dispatch => (
         .catch(err => console.log(err))
 );
 
+export const fetchStory = (storyId) => dispatch => {
+  return getStory(storyId)
+    .then( (story) => 
+        {
+            return dispatch(receiveStory(story))
+        })
+    .catch(err => console.log(err))
+    };
+
+
 export const fetchUserStories = id => dispatch => (
     getUserStories(id)
         .then(stories => dispatch(receiveUserStories(stories)))
@@ -33,6 +43,6 @@ export const fetchUserStories = id => dispatch => (
 
 export const composeStory = data => dispatch => (
     writeStory(data)
-        .then(story => dispatch(receiveNewStory(story)))
+        .then(story => dispatch(receiveStory(story)))
         .catch(err => console.log(err))
 );

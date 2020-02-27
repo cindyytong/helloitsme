@@ -1,8 +1,8 @@
-import { RECEIVE_STORIES, RECEIVE_NEW_STORY, RECEIVE_USER_STORIES } from '../../actions/story_actions';
+import { RECEIVE_STORIES, RECEIVE_STORY, RECEIVE_USER_STORIES } from '../../actions/story_actions';
 
 
 const StoriesReducer = (
-  state = { all: {}, user: {}, new: {} },
+  state = { all: {}, user: {}, current: {} },
   action
 ) => {
   Object.freeze(state);
@@ -17,8 +17,8 @@ const StoriesReducer = (
     case RECEIVE_USER_STORIES:
       newState.user = action.stories.data;
       return newState;
-    case RECEIVE_NEW_STORY:
-      newState.new = action.story.data;
+    case RECEIVE_STORY:
+      newState.current = action.story.data;
       return newState;
     default:
       return state;

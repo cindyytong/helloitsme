@@ -9,7 +9,7 @@ import SignupFormContainer from "./session/signup_form_container";
 import ProfileContainer from "./profile/profile_container";
 import StoryComposeContainer from "./stories/story_compose_container"
 import StoryIndexContainer from "./stories/stories_index_container";
-
+import StoryShowContainer from "./stories/story_show_container";
 
 const App = () => (
   <>
@@ -28,6 +28,7 @@ const App = () => (
       />
   // logged in and out 
       <Route exact path="/stories" component={StoryIndexContainer} />
+      <Route path="/stories/:storyId" component={StoryShowContainer} />
     </Switch>
   </>
 );

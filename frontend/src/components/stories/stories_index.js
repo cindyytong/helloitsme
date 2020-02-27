@@ -15,7 +15,6 @@ class StoriesIndex extends React.Component {
               return <li>{story.title}, conceived by {story.creator.handle}</li>;
             })
           );
-          debugger
         return (
             <>
                 <h3>Stories Index</h3>

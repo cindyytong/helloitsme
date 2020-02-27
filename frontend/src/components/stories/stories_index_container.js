@@ -3,7 +3,6 @@ import { fetchStories } from "../../actions/story_actions";
 import StoriesIndex from "./stories_index";
 
 const mapStateToProps = state => {
-    debugger
     return {
       stories: Object.values(state.entities.stories.all)|| []
     };
