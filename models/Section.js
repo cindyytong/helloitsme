@@ -8,18 +8,16 @@ const SectionSchema = new Schema({
         minlength: 100,
         maxlength: 500
     },
-    date: {
-        type: Date,
-        default: Date.now
-    },
     author: {
         type: Schema.Types.ObjectId,
-        ref: "users"
+        ref: "User"
     },
     story: {
         type: Schema.Types.ObjectId,
         ref: "Story"
     }
-});
+},
+    { timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' } }
+);
 
 module.exports = Section = mongoose.model('Section', SectionSchema);

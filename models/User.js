@@ -20,19 +20,10 @@ const UserSchema = new Schema({
     required: true,
     minlength: 6
   },
-  firstName: {
-    type: String
-  },
-  lastName: {
-    type: String
-  },
-  date: {
-    type: Date,
-    default: Date.now
-  },
   stories: [{ type: Schema.Types.ObjectId, ref: "Story" }],
-  sections: [{ type: Schema.Types.ObjectId, ref: "Sections" }]
-});
+  sections: [{ type: Schema.Types.ObjectId, ref: "Section" }]
+},
+  { timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }}
+);
 
-module.exports = User = mongoose.model('users', UserSchema);
-// why does this need to be 'users'? 
+module.exports = User = mongoose.model('User', UserSchema);
