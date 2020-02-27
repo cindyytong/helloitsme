@@ -19,3 +19,8 @@
 
 # Resources:
 * [Design] (https://cargo.site/Templates#pierre76)
+
+# Open to do:
+* don't allow a user to add more than one section to a story? 
+* don't allow updating or deleting a story
+* flag inappropriate? 

@@ -3,6 +3,7 @@ import { withRouter, Link } from "react-router-dom";
 
 class StoryShow extends React.Component {
     componentDidMount(){
+        debugger
         this.props.fetchStory(this.props.storyId);
     }
 
@@ -11,7 +12,10 @@ class StoryShow extends React.Component {
         return(
             <>
                 <h3>Story Show</h3>
-                {story}
+                Title: {story.title}
+                Creator: {story.creator.handle}
+                Created At: {story.created_at}
+                <img src={story.image}></img>
             </>
         )
     }

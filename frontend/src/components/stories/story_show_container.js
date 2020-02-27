@@ -3,9 +3,10 @@ import { fetchStory } from '../../actions/story_actions';
 import StoryShow from './story_show';
 
 const mapStateToProps = (state, ownProps) => {
+    debugger
     return {
         storyId: ownProps.match.params.storyId,
-        story: Object.values(state.entities.stories.current) || []
+        story: state.entities.stories.current
     }
 };
 

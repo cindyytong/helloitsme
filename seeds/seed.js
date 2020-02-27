@@ -26,9 +26,37 @@ const alex = new User({
   password: "test123"
 });
 
+const jon = new User({
+  handle: "jon",
+  email: "jon@helloitsme.com",
+  password: "test123"
+});
+
+const oliver = new User({
+  handle: "oliver",
+  email: "oliver@helloitsme.com",
+  password: "test123"
+});
+
+const josh = new User({
+  handle: "josh",
+  email: "josh@helloitsme.com",
+  password: "test123"
+});
+
+const david = new User({
+  handle: "josh",
+  email: "david@helloitsme.com",
+  password: "test123"
+});
+
 cindy.save();
 blue.save();
 alex.save();
+jon.save();
+oliver.save();
+josh.save();
+david.save();
 
 const anotherOne = new Story({
   title: "Another One",
@@ -131,3 +159,42 @@ const you = new Story({
 });
 
 you.save();
+
+
+const sec1 = new Section({
+    text:'1: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In massa tempor nec feugiat nisl pretium fusce id. Vitae tortor condimentum lacinia quis vel eros donec ac odio. Lobortis feugiat vivamus at augue eget arcu. Pretium quam vulputate dignissim suspendisse in est ante. Arcu bibendum at varius vel pharetra vel. Amet risus nullam eget felis eget nunc lobortis mattis. Rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar pellentesque habitant. Dui vivamus arcu felis bibendum ut tristique et egestas quis. Lacinia at quis risus sed vulputate odio. Amet dictum sit amet justo donec enim.',
+    author: blue._id,
+    story: anotherOne._id
+});
+sec1.save();
+
+const sec2 = new Section({
+  text:
+    "2: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In massa tempor nec feugiat nisl pretium fusce id. Vitae tortor condimentum lacinia quis vel eros donec ac odio. Lobortis feugiat vivamus at augue eget arcu. Pretium quam vulputate dignissim suspendisse in est ante. Arcu bibendum at varius vel pharetra vel. Amet risus nullam eget felis eget nunc lobortis mattis. Rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar pellentesque habitant. Dui vivamus arcu felis bibendum ut tristique et egestas quis. Lacinia at quis risus sed vulputate odio. Amet dictum sit amet justo donec enim.",
+  author: alex._id,
+  story: anotherOne._id
+});
+sec2.save();
+
+const sec3 = new Section({
+  text:
+    "3: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In massa tempor nec feugiat nisl pretium fusce id. Vitae tortor condimentum lacinia quis vel eros donec ac odio. Lobortis feugiat vivamus at augue eget arcu. Pretium quam vulputate dignissim suspendisse in est ante. Arcu bibendum at varius vel pharetra vel. Amet risus nullam eget felis eget nunc lobortis mattis. Rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar pellentesque habitant. Dui vivamus arcu felis bibendum ut tristique et egestas quis. Lacinia at quis risus sed vulputate odio. Amet dictum sit amet justo donec enim.",
+  author: alex._id,
+  story: anotherOne._id
+});
+sec3.save();
+
+const sec4 = new Section({
+  text:
+    "4: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In massa tempor nec feugiat nisl pretium fusce id. Vitae tortor condimentum lacinia quis vel eros donec ac odio. Lobortis feugiat vivamus at augue eget arcu. Pretium quam vulputate dignissim suspendisse in est ante. Arcu bibendum at varius vel pharetra vel. Amet risus nullam eget felis eget nunc lobortis mattis. Rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar pellentesque habitant. Dui vivamus arcu felis bibendum ut tristique et egestas quis. Lacinia at quis risus sed vulputate odio. Amet dictum sit amet justo donec enim.",
+  author: alex._id,
+  story: anotherOne._id
+});
+sec4.save();
+
+
+cindy.stories.push(anotherOne._id, beginnings._id, cityLight._id, here._id, lastSummer._id, lateNights._id, moon._id, you._id);
+
+blue.stories.push(roomView._id);
+
+anotherOne.sections.push(sec1, sec2, sec3, sec4);

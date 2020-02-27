@@ -32,7 +32,10 @@ router.get("/creator/:creator_id", (req, res) => {
 router.get("/:id", (req, res) => {
   Story.findById(req.params.id)
     .populate("creator")
-    .then(story => res.json(story))
+    .then(story => {
+      debugger
+      return res.json(story)
+    })
     .catch(err =>
       res.status(404).json({ nostoryfound: "No story found with that ID" })
     );

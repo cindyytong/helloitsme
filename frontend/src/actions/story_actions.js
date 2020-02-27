@@ -26,9 +26,11 @@ export const fetchStories = () => dispatch => (
 );
 
 export const fetchStory = (storyId) => dispatch => {
+    debugger
   return getStory(storyId)
     .then( (story) => 
         {
+            debugger
             return dispatch(receiveStory(story))
         })
     .catch(err => console.log(err))

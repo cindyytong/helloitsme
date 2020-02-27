@@ -5,6 +5,7 @@ export const getStories = () => {
 };
 
 export const getStory = (storyId) => {
+    debugger
     return axios.get(`/api/stories/${storyId}`)
 }
 

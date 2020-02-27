@@ -12,8 +12,7 @@ const StorySchema = new Schema(
     intro: {
       type: String,
       required: true,
-      minlength: 150,
-      maxlength: 1000
+      minlength: 150
     },
     image: {
       type: String,
