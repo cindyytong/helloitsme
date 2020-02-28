@@ -12,7 +12,12 @@ class StoriesIndex extends React.Component {
             <div>There are no stories</div>
           ) : (
             this.props.stories.map(story => {
-              return <li>{story.title}, conceived by {story.creator.handle}</li>;
+              return (
+                <li key={story.title}>
+                  <Link to={`stories/${story._id}`}>{story.title}</Link>, conceived by{" "}
+                  {story.creator.handle}
+                </li>
+              );
             })
           );
         return (

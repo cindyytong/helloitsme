@@ -24,3 +24,6 @@
 * don't allow a user to add more than one section to a story? 
 * don't allow updating or deleting a story
 * flag inappropriate? 
+* display true/false? on story and sections 
+* add story title to url path 
+* cannot add a section to same story more than once and if you are the creator 

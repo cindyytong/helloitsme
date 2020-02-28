@@ -32,6 +32,7 @@ router.get("/creator/:creator_id", (req, res) => {
 router.get("/:id", (req, res) => {
   return Story.findOne({_id: req.params.id})
     .populate("creator")
+    .populate("sections")
     .then(story => {
   
       return res.json(story)
@@ -40,6 +41,18 @@ router.get("/:id", (req, res) => {
       res.status(404).json({ nostoryfound: "No story found with that ID" })
     );
 });
+
+// story by title
+// router.get("/:title", (req, res) => {
+//   return Story.findOne({ title: req.params.title })
+//     .populate("creator")
+//     .then(story => {
+//       return res.json(story);
+//     })
+//     .catch(err =>
+//       res.status(404).json({ nostoryfound: "No story found with that ID" })
+//     );
+// });
 
 // edit a story you are the creator for 
 // router.put("/:id", (req, res) => {
