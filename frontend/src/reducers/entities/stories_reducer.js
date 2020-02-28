@@ -2,7 +2,7 @@ import { RECEIVE_STORIES, RECEIVE_STORY, RECEIVE_USER_STORIES } from '../../acti
 
 
 const StoriesReducer = (
-  state = { all: {}, user: {}, current: {} },
+  state = { all: {}, user: {}, current: null },
   action
 ) => {
   Object.freeze(state);
@@ -18,6 +18,7 @@ const StoriesReducer = (
       newState.user = action.stories.data;
       return newState;
     case RECEIVE_STORY:
+      debugger
       newState.current = action.story.data;
       return newState;
     default:

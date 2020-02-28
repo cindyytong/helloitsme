@@ -9,7 +9,7 @@ class MainPage extends React.Component {
   render() {
 
     let titles = (this.props.stories.length === 0) ? (<div>There are no stories</div>) : (this.props.stories.map(story => {
-      return <li key={story._id}>{story.title}</li>;
+      return <li key={story._id}><Link to={`/stories/${story._id}`}>{story.title}</Link></li>;
     }))
 
     let more = (this.props.stories.length >= 10) ? (<Link to={"/stories"}>See All Stories</Link>) : null;

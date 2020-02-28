@@ -6,7 +6,7 @@ const mapStateToProps = (state, ownProps) => {
     debugger
     return {
         storyId: ownProps.match.params.storyId,
-        story: state.entities.stories.current
+        story: state.entities.stories.current 
     }
 };
 

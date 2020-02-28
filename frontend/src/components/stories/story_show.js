@@ -8,14 +8,27 @@ class StoryShow extends React.Component {
     }
 
     render(){
-        const { story } = this.props;
+        debugger
+        let storyInfo;
+        
+        // if(this.props.story) {
+        //     debugger
+        //     let {story} = this.props.story;
+        //     storyInfo =  (
+        //     <>
+        //     <h2>{story.title}</h2>
+        //     <h3>Conceived by {story.creator.handle}</h3>
+        //     <p>Created On: {story.created_at.split('T')[0]}</p>
+        //     <img src={story.image} alt={story.title}></img>
+        //     </>
+        // )} else {
+        //     storyInfo = null;
+        // }
+
         return(
             <>
                 <h3>Story Show</h3>
-                Title: {story.title}
-                Creator: {story.creator.handle}
-                Created At: {story.created_at}
-                <img src={story.image}></img>
+                {/* {storyInfo} */}
             </>
         )
     }
