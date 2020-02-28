@@ -18,7 +18,6 @@ const StoriesReducer = (
       newState.user = action.stories.data;
       return newState;
     case RECEIVE_STORY:
-      debugger
       newState.current = action.story.data;
       return newState;
     default:

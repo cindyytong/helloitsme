@@ -30,11 +30,10 @@ router.get("/creator/:creator_id", (req, res) => {
 
 // story by story id 
 router.get("/:id", (req, res) => {
-  debugger
-  Story.findById(req.params.id)
+  return Story.findOne({_id: req.params.id})
     .populate("creator")
     .then(story => {
-      debugger
+  
       return res.json(story)
     })
     .catch(err =>

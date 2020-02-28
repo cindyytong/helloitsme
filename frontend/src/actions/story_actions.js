@@ -1,4 +1,4 @@
-import { getStories, getUserStories, writeStory, getStory } from '../util/story_util';
+import { getStories, getUserStories, writeStory, getStory} from '../util/story_util';
 
 export const RECEIVE_STORIES = "RECEIVE_STORIES";
 export const RECEIVE_USER_STORIES = "RECEIVE_USER_STORIES";
@@ -26,11 +26,9 @@ export const fetchStories = () => dispatch => (
 );
 
 export const fetchStory = (storyId) => dispatch => {
-    debugger
   return getStory(storyId)
     .then( (story) => 
         {
-            debugger
             return dispatch(receiveStory(story))
         })
     .catch(err => console.log(err))

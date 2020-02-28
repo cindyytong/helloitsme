@@ -4,9 +4,8 @@ export const getStories = () => {
     return axios.get('/api/stories')
 };
 
-export const getStory = (storyId) => {
-    debugger
-    return axios.get(`/api/stories/${storyId}`)
+export const getStory = id => {
+    return axios.get(`/api/stories/${id}`)
 }
 
 export const writeStory = data => {

@@ -14,7 +14,7 @@ mongoose
   .catch(err => console.log(err));
 
 // seed database remove 
-const seeds = require("./seeds/seed");
+// const seeds = require("./seeds/seed");
 
 app.get("/", (req, res) => res.send("Hello World!!"));
 
