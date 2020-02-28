@@ -2,6 +2,7 @@ import React from "react";
 import { withRouter, Link } from "react-router-dom";
 
 import SectionItem from './section_item';
+import SectionNew from "../sections/sections_new";
 
 class StoryShow extends React.Component {
     componentDidMount(){
@@ -25,6 +26,7 @@ class StoryShow extends React.Component {
             storyInfo = null;
         }
 
+        // only show to logged in user 
         let storySections;
         if(this.props.story){
             storySections = "sections here"
@@ -37,11 +39,26 @@ class StoryShow extends React.Component {
             storySections = null;
         }
 
+        let addSection;
+            if (this.props.story) {
+              addSection = (
+                <SectionNew
+                  composeSection={this.props.composeSection}
+                  author={this.props.userId}
+                  story={this.props.storyId}
+                />
+              );
+            } else {
+              addSection = null;
+            }
+
         return(
             <>
                 <h3>Story Show</h3>
                 {storyInfo}
                 {storySections}
+                <br />
+                {addSection}
             </>
         )
     }
