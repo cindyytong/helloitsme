@@ -18,7 +18,26 @@ router.get("/", (req, res) => {
     .catch(err => res.status(404).json({ nosectionsfound: "No sections found" }));
 });
 
+router.post(
+  "/",
+  passport.authenticate("jwt", { session: false }), 
+  (req, res) => {
+    const { errors, isValid } = validateSectionInput(req.body); // validate input
 
+    if (!isValid) {
+      return res.status(400).json(errors);
+    }
+
+    const newSection = new Section({
+      text: req.body.text,
+      author: req.body.author,
+      story: req.body.story
+    });
+    return newSection.save().then(section => {
+      return res.json(section);
+    });
+  }
+);
 
 
 module.exports = router;

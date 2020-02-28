@@ -7,6 +7,7 @@ class StoriesIndex extends React.Component {
     }
 
     render(){
+      debugger
         let storiesList =
           this.props.stories.length === 0 ? (
             <div>There are no stories</div>
@@ -14,8 +15,7 @@ class StoriesIndex extends React.Component {
             this.props.stories.map(story => {
               return (
                 <li key={story.title}>
-                  <Link to={`stories/${story._id}`}>{story.title}</Link>, conceived by{" "}
-                  {story.creator.handle}
+                  <Link to={`stories/${story._id}`}>{story.title}</Link>
                 </li>
               );
             })
