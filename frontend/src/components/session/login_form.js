@@ -26,7 +26,6 @@ class LoginForm extends React.Component {
     }
 
     // componentDidUpdate(prevProps, prevState) {
-    //     debugger
     //     if (this.props.currentUser === true) {
     //         this.props.history.push('/stories');
     //     }

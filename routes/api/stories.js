@@ -32,7 +32,9 @@ router.get("/creator/:creator_id", (req, res) => {
 router.get("/:id", (req, res) => {
   return Story.findOne({_id: req.params.id})
     .populate("creator")
-    .populate("sections")
+    .populate({path: "sections", populate: {
+      path: "author", model: "User", select: "handle"
+    }}) 
     .then(story => {
   
       return res.json(story)
@@ -71,18 +73,22 @@ router.post(
   "/",
   passport.authenticate("jwt", { session: false }), // middleware which checks there is a current user 
   (req, res) => {
-    const { errors, isValid } = validateStoryInput(req.body); // validate inpute
+    const { errors, isValid } = validateStoryInput(req.body); // validate input
  
     if (!isValid) {
+
       return res.status(400).json(errors);
     }
 
     const newStory = new Story({
       title: req.body.title,
-      creator: req.user.id
+      intro: req.body.intro,
+      image: req.body.image,
+      creator: req.body.creator
     });
- 
-    return newStory.save().then(story => res.json(story));
+    return newStory.save().then(story => {
+
+      return res.json(story)});
   }
 );
 

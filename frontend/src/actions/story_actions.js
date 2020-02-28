@@ -41,8 +41,8 @@ export const fetchUserStories = id => dispatch => (
         .catch(err => console.log(err))
 );
 
-export const composeStory = data => dispatch => (
-    writeStory(data)
+export const composeStory = data => dispatch => {
+    return writeStory(data)
         .then(story => dispatch(receiveStory(story)))
         .catch(err => console.log(err))
-);
+};

@@ -7,7 +7,7 @@ import MainPageContainer from './main/main_page_container';
 import LoginFormContainer from "./session/login_form_container";
 import SignupFormContainer from "./session/signup_form_container";
 import ProfileContainer from "./profile/profile_container";
-import StoryComposeContainer from "./stories/story_compose_container"
+import StoryNewContainer from "./stories/story_new_container";
 import StoryIndexContainer from "./stories/stories_index_container";
 import StoryShowContainer from "./stories/story_show_container";
 
@@ -21,10 +21,10 @@ const App = () => (
 
   // must be logged in 
       <ProtectedRoute exact path="/profile" component={ProfileContainer} />
-      {/* <ProtectedRoute
+      <ProtectedRoute
         exact
         path="/stories/new"
-        component={StoryComposeContainer} */}
+        component={StoryNewContainer}
       />
   // logged in and out 
       <Route exact path="/stories" component={StoryIndexContainer} />
