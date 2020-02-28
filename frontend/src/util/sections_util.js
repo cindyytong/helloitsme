@@ -6,6 +6,5 @@ import axios from 'axios';
 // }
 
 export const writeSection = data => {
-    debugger
     return axios.post("/api/sections/", data)
 }

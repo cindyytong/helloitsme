@@ -5,11 +5,11 @@ import StoryShow from './story_show';
 
 
 const mapStateToProps = (state, ownProps) => {
-    debugger
     return {
         storyId: ownProps.match.params.storyId,
         story: state.entities.stories.current,
-        userId: state.session.user._id || null 
+        userId: state.session.user.id || null,
+        sectionErrors: state.errors.section 
     }
 };
 

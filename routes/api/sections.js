@@ -23,7 +23,6 @@ router.post(
   passport.authenticate("jwt", { session: false }), 
   (req, res) => {
     const { errors, isValid } = validateSectionInput(req.body); // validate input
-
     if (!isValid) {
       return res.status(400).json(errors);
     }
@@ -34,6 +33,7 @@ router.post(
       story: req.body.story
     });
     return newSection.save().then(section => {
+
       return res.json(section);
     });
   }

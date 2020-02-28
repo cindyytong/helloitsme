@@ -7,7 +7,6 @@ class StoriesIndex extends React.Component {
     }
 
     render(){
-      debugger
         let storiesList =
           this.props.stories.length === 0 ? (
             <div>There are no stories</div>

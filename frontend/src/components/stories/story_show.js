@@ -9,6 +9,9 @@ class StoryShow extends React.Component {
         this.props.fetchStory(this.props.storyId);
     }
 
+    // componentDidUpdate(){
+    //     this.props.fetchStory(this.props.storyId);
+    // }
     render(){
         let storyInfo;
         if(this.props.story) {
@@ -46,6 +49,7 @@ class StoryShow extends React.Component {
                   composeSection={this.props.composeSection}
                   author={this.props.userId}
                   story={this.props.storyId}
+                  errors={this.props.sectionErrors}
                 />
               );
             } else {
